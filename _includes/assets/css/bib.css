@@ -1,0 +1,14 @@
+/* Define the new utility class */
+.csl-bib-body {
+
+}
+
+.csl-entry {
+    text-indent: -1em;
+    padding-left: 1em;
+}
+
+/* Add the hover effect */
+.csl-entry:hover {
+    opacity: 1;
+}

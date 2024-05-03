@@ -5,8 +5,9 @@
 @layer base {
   
   /* Set up some default image behavior for nicer images */
+  /* removi: w-auto shadow-md border-2 */
   img {
-    @apply w-auto  shadow-md border-2 border-transparent !important
+    @apply border-transparent !important
   }
   img:hover {
     @apply border-2 border-gray-100

@@ -1,0 +1,15 @@
+---
+layout: layouts/page.njk
+section: biblio
+---
+{{ layoutContent | safe }}
+<div class="mb-4 group relative">
+<div class="group relative">
+
+{% set bibpath = "/_includes/assets/bib/" + bibliofile %}
+{% bibimport %}
+{{ bibpath }}
+{% endbibimport %}
+
+</div>
+</div>
