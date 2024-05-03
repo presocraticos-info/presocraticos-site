@@ -11,18 +11,10 @@ const Image = require("@11ty/eleventy-img");
 const bibImport = require("./filters/bibImport.js");
 
 module.exports = function(eleventyConfig) {
-    // eleventyConfig.addFilter("bibImport", bibImport);
-
     eleventyConfig.addPairedAsyncShortcode(
         "bibimport",
         bibImport
     );
-
-    // eleventy-plugin-bibtex
-    // eleventyConfig.addPairedAsyncShortcode(
-    //     "bibtex",
-    //     require("eleventy-plugin-bibtex")
-    // );
 
     eleventyConfig.addPlugin(svgContents);
     eleventyConfig.addPlugin(embedEverything);

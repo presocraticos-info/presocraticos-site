@@ -43,7 +43,6 @@
     "clean-css": "^4.2.1",
     "clean-css-cli": "^4.3.0",
     "elasticlunr": "^0.9.5",
-    "eleventy-plugin-bibtex": "file:../eleventy-plugin-bibtex",
     "eleventy-plugin-embed-everything": "^1.9.4",
     "eleventy-plugin-nesting-toc": "^1.2.0",
     "eleventy-plugin-svg-contents": "^0.7.0",
