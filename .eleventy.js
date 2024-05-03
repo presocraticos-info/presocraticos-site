@@ -62,6 +62,8 @@ module.exports = function(eleventyConfig) {
     //   return '<a class="button" href="'+url+'">'+title+'</a>';
     // });
 
+    // Watch bibliography
+    eleventyConfig.addWatchTarget("./content/bib/");
 
     // Tailwind pass through and watch target
     eleventyConfig.addWatchTarget("./_tmp/style.css");
