@@ -27,12 +27,19 @@ module.exports = async function(file, minyear, maxyear) {
     // I've always used "src" as ID, showing my BibTex incompetence.
     input.map(e => e.id = bibtexCounter++);
 
-    selection = input.filter(e => 'issued' in e && 'date-parts' in e.issued &&
-                             ((maxyear === undefined &&
-                               e.issued['date-parts'].slice(-1) >= minyear) ||
-                              (maxyear !== undefined &&
-                               e.issued['date-parts'].slice(-1) >= minyear &&
-                               e.issued['date-parts'].slice(-1) <= maxyear)));
+    selection = input.filter(function(e) {
+        if (! ('issued' in e && 'date-parts' in e.issued)) {
+            throw new Error(e.title + " has no date");
+        }
+
+        let y = e.issued['date-parts'][0][0];
+
+        return ((maxyear === undefined &&
+                 y >= minyear) ||
+                (maxyear !== undefined &&
+                 y >= minyear &&
+                 y <= maxyear));
+    });
 
     // Put in Cite object and get HTML out of it!
     const data = new Cite(selection);
