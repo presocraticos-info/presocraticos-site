@@ -39,7 +39,7 @@ module.exports = async function(file, minyear, maxyear) {
     const html = data.format('bibliography', {
         format: 'html',
         template: 'apa',
-        lang: 'es'
+        lang: 'pt'
     });
 
 
