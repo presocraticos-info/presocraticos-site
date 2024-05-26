@@ -1,7 +1,7 @@
 ---
 layout: layouts/biblio.njk
 bibliofile: resenas.bib
-title: Resenhas
+title: Reseñas
 date: Last Modified
 permalink: /biblio/resenas/index.html
 eleventyNavigation:
