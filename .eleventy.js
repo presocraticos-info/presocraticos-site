@@ -9,11 +9,18 @@ const pluginTOC = require('eleventy-plugin-nesting-toc');
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 const bibImport = require("./filters/bibImport.js");
+const bibPerYear = require("./filters/bibPerYear.js");
+
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPairedAsyncShortcode(
         "bibimport",
         bibImport
+    );
+
+    eleventyConfig.addAsyncShortcode(
+        "bibperyear",
+        bibPerYear
     );
 
     eleventyConfig.addPlugin(svgContents);

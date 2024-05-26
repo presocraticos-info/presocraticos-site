@@ -1,0 +1,55 @@
+const Cite = require('citation-js');
+const Autolinker = require('autolinker');
+const fs =require('fs');
+
+/**
+ * Load BibTeX references as objects
+ *
+ * @param {*} file BibTeX file
+ * @returns
+ */
+module.exports = async function(file, minyear, maxyear) {
+
+    let relativeFilePath = `.${file}`;
+    let content = fs.readFileSync(relativeFilePath, 'utf8', function(err, cont) {
+        if (err) {
+            throw new Error(err);
+        }
+        return cont;
+    });
+
+    let bibtexCounter = 1;
+
+    // Parse bibtex string
+    const input = await Cite.inputAsync(content);
+
+    // Citation.js required unique IDs, so make sure they're unique.
+    // I've always used "src" as ID, showing my BibTex incompetence.
+    input.map(e => e.id = bibtexCounter++);
+
+    selection = input.filter(e => 'issued' in e && 'date-parts' in e.issued &&
+                             ((maxyear === undefined &&
+                               e.issued['date-parts'].slice(-1) >= minyear) ||
+                              (maxyear !== undefined &&
+                               e.issued['date-parts'].slice(-1) >= minyear &&
+                               e.issued['date-parts'].slice(-1) <= maxyear)));
+
+    // Put in Cite object and get HTML out of it!
+    const data = new Cite(selection);
+    const html = data.format('bibliography', {
+        format: 'html',
+        template: 'apa',
+        lang: 'es'
+    });
+
+
+    // Convert all links in the output HTML to actual <a> tags
+    return Autolinker.link(html, {
+        newWindow: true,
+        email: false,
+        phone: false,
+        stripPrefix: false,
+        stripTrailingSlash: false,
+        className: "no-underline",
+    });
+};

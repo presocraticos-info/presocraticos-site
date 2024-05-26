@@ -6,10 +6,14 @@ section: biblio
 <div class="mb-4 group relative">
 <div class="group relative">
 
-{% set bibpath = "/content/bib/" + bibliofile %}
-{% bibimport %}
-{{ bibpath }}
-{% endbibimport %}
+<h2>2021-2024</h2>
+{% bibperyear "/content/bib/" + bibliofile, 2021 %}
+
+<h2>1981-2020</h2>
+{% bibperyear "/content/bib/" + bibliofile, 1981, 2020 %}
+
+<h2>1900-1979</h2>
+{% bibperyear "/content/bib/" + bibliofile, 1900, 1980 %}
 
 </div>
 </div>
