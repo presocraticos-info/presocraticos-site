@@ -58,5 +58,10 @@ module.exports = async function(file, minyear, maxyear) {
         stripPrefix: false,
         stripTrailingSlash: false,
         className: "no-underline",
+        replaceFn: function(match) {
+            var tag = match.buildTag();
+            tag.setInnerHtml("↗️");
+            return tag;
+        }
     });
 };
