@@ -15,6 +15,7 @@ Esperamos que encuentres nuestro sitio útil e inspirador en tu jornada de estud
 
 👉 [Envía tu contribución a esta base bibliográfica](https://forms.gle/yPPYWn5mt2FrfqABA).
 
-Editores:  
-Bruno Loureiro Conte, Pontifícia Universidade Católica de São Paulo  
-Liliana Carolina Sánchez Castro, Universidad de Antioquia
+Editores:
+
+- Bruno Loureiro Conte, Pontifícia Universidade Católica de São Paulo
+- Liliana Carolina Sánchez Castro, Universidad de Antioquia
